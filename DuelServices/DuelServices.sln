@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistrationService", "RegistrationService\RegistrationService.csproj", "{8BB0AD03-F2B9-4A9F-8290-A5921E6756B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchmakingService", "MatchmakingService\MatchmakingService.csproj", "{6AD5C71F-2DBC-447E-A8AA-07A9234DF42A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuelSimulationService", "DuelSimulationService\DuelSimulationService.csproj", "{44A25160-554E-4726-8E25-59C1AB3DCEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerStatisticsService", "PlayerStatisticsService\PlayerStatisticsService.csproj", "{8FE21DB9-D5E1-420A-8601-9555C38F9F81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BB0AD03-F2B9-4A9F-8290-A5921E6756B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB0AD03-F2B9-4A9F-8290-A5921E6756B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB0AD03-F2B9-4A9F-8290-A5921E6756B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB0AD03-F2B9-4A9F-8290-A5921E6756B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD5C71F-2DBC-447E-A8AA-07A9234DF42A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD5C71F-2DBC-447E-A8AA-07A9234DF42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD5C71F-2DBC-447E-A8AA-07A9234DF42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD5C71F-2DBC-447E-A8AA-07A9234DF42A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A25160-554E-4726-8E25-59C1AB3DCEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A25160-554E-4726-8E25-59C1AB3DCEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A25160-554E-4726-8E25-59C1AB3DCEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A25160-554E-4726-8E25-59C1AB3DCEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE21DB9-D5E1-420A-8601-9555C38F9F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE21DB9-D5E1-420A-8601-9555C38F9F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE21DB9-D5E1-420A-8601-9555C38F9F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE21DB9-D5E1-420A-8601-9555C38F9F81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

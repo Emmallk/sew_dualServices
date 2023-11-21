@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qG+TA4n8BMVmLY0T9+a78kphtePJGxCxjNfXBeBzolM=",
+  "Source": "DuelSimulationService",
+  "BasePath": "_content/DuelSimulationService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
