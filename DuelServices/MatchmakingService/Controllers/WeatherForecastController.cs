@@ -18,7 +18,7 @@ public class WeatherForecastController : ControllerBase
     {
         _logger = logger;
         _httpClient = httpClientFactory.CreateClient();
-    }
+    } 
 
     [HttpGet(Name = "GetWeatherForecast")]
     public async Task<IEnumerable<WeatherForecast>> Get()

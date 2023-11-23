@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oobX5MltsMOoX+ZjjzkXmLf9Yf14g1fu9dYHhrT11wubtARzP6+7XFmNWLrtZN3/nZsk2iO9A1O7quAC5R3Bhg==",
+  "dgSpecHash": "nTIfJR3tEWL32TzCTf0jlvOeJ3EZTyByjIfqXysh5JETQ6anIjjsAbS0g75b3ctMdxcz0qIATeWG4gVicXgTEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\emmak\\RiderProjects\\DuelServices\\PlayerStatisticsService\\PlayerStatisticsService.csproj",
+  "projectFilePath": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\PlayerStatisticsService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emmak\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\emmak\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

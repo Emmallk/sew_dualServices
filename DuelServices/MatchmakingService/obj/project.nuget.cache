@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ke3g5uM4D5or8V5IJ+LKaeOUTy8dfnaoenEQr0oedwS/q0KViTf3heSsWhIFVXNMMpJcqbcMQBHTXL4kKs9W5g==",
+  "dgSpecHash": "sf8UZuVC4qv5Asa83/iIdpqX03qQvPTUIeR25O1+OoyYKtxMcaiza1pUE9FXOymO751urnpZj223ALUWyAVWwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\emmak\\RiderProjects\\DuelServices\\MatchmakingService\\MatchmakingService.csproj",
+  "projectFilePath": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\MatchmakingService\\MatchmakingService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emmak\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "C:\\Users\\emmak\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

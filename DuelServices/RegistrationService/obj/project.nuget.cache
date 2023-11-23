@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bG0/CAeD3/u2wa+ePyxvVIWyFhp7Y0CieVuQKuj2GccF8O0agRbtcvFFu88CuyfFLApzERKVyVIHVBQb+0LMow==",
+  "dgSpecHash": "CF1SJF23Sts/170vUx+leRWJEpQkC6IEhHLK2Lt2b0+LOTThKXtTiY0rfEMHIO9lZX/R2sc+R9udbMMl97OXVA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\emmak\\RiderProjects\\DuelServices\\RegistrationService\\RegistrationService.csproj",
+  "projectFilePath": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emmak\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "C:\\Users\\emmak\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
