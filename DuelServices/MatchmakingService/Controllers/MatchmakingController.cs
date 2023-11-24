@@ -19,13 +19,10 @@ public class MatchmakingController : ControllerBase
     [HttpGet]
     public IActionResult GetMatchmaking()
     {
-        // Get registered players from the Registration Service
         List<Player> registeredPlayers = _registrationService.GetRegisteredPlayers();
-
-        // Get upcoming duels
+        
         List<Duel> upcomingDuels = GetUpcomingDuels(registeredPlayers);
-
-        // Order duels by priority (first-time players or players with a long gap since their last duel)
+        
         upcomingDuels = OrderDuelsByPriority(upcomingDuels);
 
         return Ok(upcomingDuels);
@@ -72,7 +69,7 @@ public class MatchmakingController : ControllerBase
 
 public interface IStatisticsService
 {
-    // Add methods to retrieve statistics, such as last played duel date
+  
 }
 
 public class Player
