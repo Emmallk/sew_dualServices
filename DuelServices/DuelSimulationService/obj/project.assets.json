@@ -107,6 +107,23 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "RegistrationService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.OpenApi": "7.0.11",
+          "Swashbuckle.AspNetCore": "6.5.0"
+        },
+        "compile": {
+          "bin/placeholder/RegistrationService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RegistrationService.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -460,11 +477,17 @@
         "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "RegistrationService/1.0.0": {
+      "type": "project",
+      "path": "../RegistrationService/RegistrationService.csproj",
+      "msbuildProject": "../RegistrationService/RegistrationService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.AspNetCore.OpenApi >= 7.0.11",
+      "RegistrationService >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -500,7 +523,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj": {
+              "projectPath": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

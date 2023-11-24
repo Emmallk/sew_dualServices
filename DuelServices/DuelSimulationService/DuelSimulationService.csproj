@@ -13,4 +13,15 @@
     </ItemGroup>
 
 
+
+    <ItemGroup>
+      <ProjectReference Include="..\RegistrationService\RegistrationService.csproj" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Folder Include="Interfaces\" />
+    </ItemGroup>
+
 </Project>

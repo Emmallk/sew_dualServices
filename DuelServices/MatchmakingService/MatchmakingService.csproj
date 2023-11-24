@@ -12,4 +12,16 @@
     </ItemGroup>
 
 
+
+    <ItemGroup>
+      <ProjectReference Include="..\PlayerStatisticsService\PlayerStatisticsService.csproj" />
+      <ProjectReference Include="..\RegistrationService\RegistrationService.csproj" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Folder Include="Interfaces\" />
+    </ItemGroup>
+
 </Project>

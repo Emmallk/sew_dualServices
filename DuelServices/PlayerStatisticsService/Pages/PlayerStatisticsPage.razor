@@ -1,0 +1,51 @@
+﻿@page "/playerstatistics"
+@using PlayerStatisticsService.Class
+
+@inject HttpClient HttpClient
+
+<PageTitle>Statistics</PageTitle>
+<h3>Player Statistics</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Player ID</th>
+        <th>Player Name</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Draws</th>
+        <th>Played</th>
+        <th>Avg Duration</th>
+        <th>Last Played At</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var playerStatistics in playerStatisticsList)
+    {
+        <tr>
+            <td>@playerStatistics.PlayerId</td>
+            <td>@playerStatistics.PlayerName</td>
+            <td>@playerStatistics.NumberOfDuelsWon</td>
+            <td>@playerStatistics.NumberOfDuelsLost</td>
+            <td>@playerStatistics.NumberOfDuelsDraw</td>
+            <td>@playerStatistics.NumberOfDuelsPlayed</td>
+            <td>@playerStatistics.AverageDuelDuration</td>
+            <td>@playerStatistics.LastDuelPlayedAt.ToString()</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+    private List<PlayerStatistics> playerStatisticsList = new List<PlayerStatistics>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPlayerStatistics();
+    }
+
+    private async Task LoadPlayerStatistics()
+    {
+        playerStatisticsList = await HttpClient.GetFromJsonAsync<List<PlayerStatistics>>("/PlayerStatistics");
+    }
+}

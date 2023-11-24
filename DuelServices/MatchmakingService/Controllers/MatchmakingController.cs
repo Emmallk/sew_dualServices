@@ -1,5 +1,12 @@
-using MatchmakingService.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using MatchmakingService.Class;
+using PlayerStatisticsService.Interfaces;
+using RegistrationService.Class;
 
 namespace MatchmakingService.Controllers;
 
@@ -20,15 +27,49 @@ public class MatchmakingController : ControllerBase
     public IActionResult GetMatchmaking()
     {
         List<Player> registeredPlayers = _registrationService.GetRegisteredPlayers();
-        
         List<Duel> upcomingDuels = GetUpcomingDuels(registeredPlayers);
-        
         upcomingDuels = OrderDuelsByPriority(upcomingDuels);
 
         return Ok(upcomingDuels);
     }
 
-    private List<Duel> GetUpcomingDuels(List<Player> players) {
+    [HttpGet]
+    [Route("api/matchmaking/{playerId}")]
+    public async Task<IActionResult> GetMatchmakingData(int playerId) // Ändern Sie die Methode zu async
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            string playerStatisticsServiceUrl = "http://playerstatisticsservice/api/playerstatistics/" + playerId;
+            var response = await client.GetAsync(playerStatisticsServiceUrl); // Ändern Sie die Methode zu async
+
+            if (response.IsSuccessStatusCode)
+            {
+                //var playerStatistics =
+                //    await response.Content.ReadAsAsync<PlayerStatistics>(); // Ändern Sie die Methode zu async
+                
+            }
+            else
+            {
+                // Fehlerbehandlung, wenn die Anfrage nicht erfolgreich ist
+                return StatusCode((int)response.StatusCode, "Fehler beim Abrufen der Spielerstatistiken");
+            }
+        }
+
+        // Fügen Sie einen Rückgabewert hinzu (z.B. NotFound), wenn die Anfrage nicht erfolgreich ist
+        return NotFound();
+    }
+
+
+    [HttpGet]
+    public ActionResult<string> Get([FromQuery] string parameter1, [FromQuery] string parameter2)
+    {
+        string result = $"Daten erhalten: Parameter1 = {parameter1}, Parameter2 = {parameter2}";
+
+        return result;
+    }
+
+    private List<Duel> GetUpcomingDuels(List<Player> players)
+    {
         List<Duel> upcomingDuels = new List<Duel>();
 
         // Logic to match players based on Elo values
@@ -41,46 +82,33 @@ public class MatchmakingController : ControllerBase
                 .OrderBy(p => Math.Abs(p.Elo - player.Elo))
                 .FirstOrDefault();
 
-            if (opponent != null) {
+            if (opponent != null)
+            {
                 upcomingDuels.Add(new Duel { Player1 = player, Player2 = opponent });
             }
         }
+
         return upcomingDuels;
     }
 
+
+    // Duell ordnen 
     private List<Duel> OrderDuelsByPriority(List<Duel> duels)
     {
-        // Logic to order duels by priority (first-time players or players with a long gap since their last duel)
-        // You need to implement your own logic here based on your requirements
+        duels = duels
+            .OrderBy(d =>
+                (d.Player1.LastPlayedDuel == null ? DateTime.MinValue : d.Player1.LastPlayedDuel)
+                >
+                (d.Player2.LastPlayedDuel == null ? DateTime.MinValue : d.Player2.LastPlayedDuel))
+            .ThenBy(d =>
+                (d.Player1.LastPlayedDuel == null ? DateTime.MinValue : d.Player1.LastPlayedDuel)
+                >
+                (d.Player2.LastPlayedDuel == null ? DateTime.MinValue : d.Player2.LastPlayedDuel)
+                    ? (DateTime.Now - (d.Player1.LastPlayedDuel ?? DateTime.Now)).TotalDays
+                    : (DateTime.Now - (d.Player2.LastPlayedDuel ?? DateTime.Now)).TotalDays)
+            .ToList();
 
-        // Example: Ordering by players who never played a duel or have a long gap since the last duel
-        duels = duels.OrderBy(d =>d.Player1.LastPlayedDuel == null)
-            .ThenBy(d => d.Player2.LastPlayedDuel == null)
-            .ToList();
-           /*
-                d.Player1.LastPlayedDuel == null || (DateTime.Now - d.Player1.LastPlayedDuel).Days > 30)
-            .ThenBy(d => d.Player2.LastPlayedDuel == null || (DateTime.Now - d.Player2.LastPlayedDuel).Days > 30)
-            .ToList();
-            */
         return duels;
     }
 }
 
-
-public interface IStatisticsService
-{
-  
-}
-
-public class Player
-{
-    public int Id { get; set; }
-    public int Elo { get; set; }
-    public DateTime? LastPlayedDuel { get; set; }
-}
-
-public class Duel
-{
-    public Player Player1 { get; set; }
-    public Player Player2 { get; set; }
-}
