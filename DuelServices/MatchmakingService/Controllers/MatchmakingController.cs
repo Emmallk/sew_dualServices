@@ -79,7 +79,7 @@ public class MatchmakingController : ControllerBase
         foreach (var player in players)
         {
             var opponent = players.Where(p => p.Id != player.Id)
-                .OrderBy(p => Math.Abs(p.Elo - player.Elo))
+                .OrderBy(p => Math.Abs(p.EloRating - player.EloRating))
                 .FirstOrDefault();
 
             if (opponent != null)
