@@ -9,6 +9,8 @@
       "MatchmakingService/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "7.0.11",
+          "PlayerStatisticsService": "1.0.0",
+          "RegistrationService": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -72,6 +74,24 @@
             "fileVersion": "6.5.0.0"
           }
         }
+      },
+      "PlayerStatisticsService/1.0.0": {
+        "dependencies": {
+          "RegistrationService": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.5.0"
+        },
+        "runtime": {
+          "PlayerStatisticsService.dll": {}
+        }
+      },
+      "RegistrationService/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.OpenApi": "7.0.11",
+          "Swashbuckle.AspNetCore": "6.5.0"
+        },
+        "runtime": {
+          "RegistrationService.dll": {}
+        }
       }
     }
   },
@@ -129,6 +149,16 @@
       "sha512": "sha512-OvbvxX+wL8skxTBttcBsVxdh73Fag4xwqEU2edh4JMn7Ws/xJHnY/JB1e9RoCb6XpDxUF3hD9A0Z1lEUx40Pfw==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.5.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+    },
+    "PlayerStatisticsService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RegistrationService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

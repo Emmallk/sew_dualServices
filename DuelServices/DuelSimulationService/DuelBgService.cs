@@ -1,9 +1,8 @@
-namespace DuelSimulation.Class;
+namespace DuelSimulation;
 
 public class DuelBgService : BackgroundService
 {    
-    protected override async Task ExecuteAsync(
-        CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
         {
@@ -12,4 +11,5 @@ public class DuelBgService : BackgroundService
             await Task.Delay(10_000);
         }
     }
+   
 }

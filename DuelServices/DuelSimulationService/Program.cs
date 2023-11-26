@@ -1,4 +1,4 @@
-using DuelSimulation.Class;
+using DuelSimulation;
 
 var builder = WebApplication.CreateBuilder(args);
 

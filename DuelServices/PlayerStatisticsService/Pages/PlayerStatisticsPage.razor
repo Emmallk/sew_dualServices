@@ -1,43 +1,44 @@
 ﻿@page "/playerstatistics"
-@using PlayerStatisticsService.Class
-
-@inject HttpClient HttpClient
+@inject HttpClient httpClient
 
 <PageTitle>Statistics</PageTitle>
 <h3>Player Statistics</h3>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>Player ID</th>
-        <th>Player Name</th>
-        <th>Wins</th>
-        <th>Losses</th>
-        <th>Draws</th>
-        <th>Played</th>
-        <th>Avg Duration</th>
-        <th>Last Played At</th>
-    </tr>
-    </thead> 
-    <tbody>
-    @foreach (var playerStatistics in playerStatisticsList)
-    {
+@if (playerStatisticsList != null && playerStatisticsList.Any())
+{
+    <table class="table">
+        <thead>
         <tr>
-            <td>@playerStatistics.PlayerId</td>
-            <td>@playerStatistics.PlayerName</td>
-            <td>@playerStatistics.NumberOfDuelsWon</td>
-            <td>@playerStatistics.NumberOfDuelsLost</td>
-            <td>@playerStatistics.NumberOfDuelsDraw</td>
-            <td>@playerStatistics.NumberOfDuelsPlayed</td>
-            <td>@playerStatistics.AverageDuelDuration</td>
-            <td>@playerStatistics.LastDuelPlayedAt.ToString()</td>
+            <th>Player Name</th>
+            <th>Number of Duels Played</th>
+            <th>Number of Duels Won</th>
+            <th>Number of Duels Lost</th>
+            <th>Number of Duels Draw</th>
+            <th>Last Duel Played At</th>
         </tr>
-    }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        @foreach (var playerStatistics in playerStatisticsList)
+        {
+            <tr>
+                <td>@playerStatistics.PlayerName</td>
+                <td>@playerStatistics.NumberOfDuelsPlayed</td>
+                <td>@playerStatistics.NumberOfDuelsWon</td>
+                <td>@playerStatistics.NumberOfDuelsLost</td>
+                <td>@playerStatistics.NumberOfDuelsDraw</td>
+                <td>@playerStatistics.LastDuelPlayedAt</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No player statistics available.</p>
+}
 
 @code {
-    private List<PlayerStatistics> playerStatisticsList = new List<PlayerStatistics>();
+    private List<PlayerStatistics> playerStatisticsList;
 
     protected override async Task OnInitializedAsync()
     {
@@ -46,6 +47,6 @@
 
     private async Task LoadPlayerStatistics()
     {
-        playerStatisticsList = await HttpClient.GetFromJsonAsync<List<PlayerStatistics>>("/PlayerStatistics");
+        playerStatisticsList = await httpClient.GetFromJsonAsync<List<PlayerStatistics>>("Statistics");
     }
 }

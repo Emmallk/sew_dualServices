@@ -16,4 +16,7 @@
       <ProjectReference Include="..\RegistrationService\RegistrationService.csproj" />
     </ItemGroup>
 
+
+
+
 </Project>

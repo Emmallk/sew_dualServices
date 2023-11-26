@@ -64,3 +64,15 @@ C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\
 C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\obj\Debug\net7.0\MatchmakingService.pdb
 C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\obj\Debug\net7.0\MatchmakingService.genruntimeconfig.cache
 C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\obj\Debug\net7.0\ref\MatchmakingService.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\PlayerStatisticsService.deps.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\PlayerStatisticsService.runtimeconfig.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\RegistrationService.deps.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\RegistrationService.runtimeconfig.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\RegistrationService.exe
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\PlayerStatisticsService.staticwebassets.runtime.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\PlayerStatisticsService.exe
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\MatchmakingService.staticwebassets.runtime.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\PlayerStatisticsService.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\RegistrationService.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\PlayerStatisticsService.pdb
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\MatchmakingService\bin\Debug\net7.0\RegistrationService.pdb

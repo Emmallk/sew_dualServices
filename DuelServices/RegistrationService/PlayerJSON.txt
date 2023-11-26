@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "eloRating": 1500,
+    "lastPlayedDuel": "2023-11-26T19:46:14.262Z"
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "eloRating": 1600,
+    "lastPlayedDuel": "2023-11-25T18:30:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "eloRating": 1420,
+    "lastPlayedDuel": "2023-11-24T21:15:30.500Z"
+  },
+  {
+    "id": 4,
+    "name": "David",
+    "eloRating": 1550,
+    "lastPlayedDuel": "2023-11-26T10:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "Eva",
+    "eloRating": 1480,
+    "lastPlayedDuel": "2023-11-26T15:30:00.000Z"
+  },
+  {
+    "id": 6,
+    "name": "Frank",
+    "eloRating": 1450,
+    "lastPlayedDuel": "2023-11-23T14:45:00.000Z"
+  },
+  {
+    "id": 7,
+    "name": "Grace",
+    "eloRating": 1580,
+    "lastPlayedDuel": "2023-11-25T22:30:45.750Z"
+  },
+  {
+    "id": 8,
+    "name": "Hank",
+    "eloRating": 1520,
+    "lastPlayedDuel": "2023-11-26T12:30:00.000Z"
+  },
+  {
+    "id": 9,
+    "name": "Ivy",
+    "eloRating": 1430,
+    "lastPlayedDuel": "2023-11-24T19:20:15.300Z"
+  },
+  {
+    "id": 10,
+    "name": "Jack",
+    "eloRating": 1475,
+    "lastPlayedDuel": "2023-11-26T14:00:00.000Z"
+  }
+]

@@ -13,4 +13,8 @@
 
 
 
+    <ItemGroup>
+      <Folder Include="Class\" />
+    </ItemGroup>
+
 </Project>

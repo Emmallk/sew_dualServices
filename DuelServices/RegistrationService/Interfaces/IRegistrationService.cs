@@ -1,5 +1,5 @@
+using RegistrationService;
 using RegistrationService.Controllers;
-using RegistrationService.Class;
 
 public interface IRegistrationService
 {

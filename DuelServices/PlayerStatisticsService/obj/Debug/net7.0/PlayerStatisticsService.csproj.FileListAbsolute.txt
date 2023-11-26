@@ -74,3 +74,9 @@ C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsSer
 C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\obj\Debug\net7.0\PlayerStatisticsService.pdb
 C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\obj\Debug\net7.0\PlayerStatisticsService.genruntimeconfig.cache
 C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\obj\Debug\net7.0\ref\PlayerStatisticsService.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\bin\Debug\net7.0\RegistrationService.deps.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\bin\Debug\net7.0\RegistrationService.runtimeconfig.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\bin\Debug\net7.0\RegistrationService.exe
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\bin\Debug\net7.0\RegistrationService.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\bin\Debug\net7.0\RegistrationService.pdb
