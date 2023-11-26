@@ -57,43 +57,6 @@ public class MatchmakingServiceController : Controller
                 }
             }
         }
-<<<<<<< HEAD
-=======
-
-        // Fügen Sie einen Rückgabewert hinzu (z.B. NotFound), wenn die Anfrage nicht erfolgreich ist
-        return NotFound();
-    }
-
-
-    [HttpGet]
-    public ActionResult<string> Get([FromQuery] string parameter1, [FromQuery] string parameter2)
-    {
-        string result = $"Daten erhalten: Parameter1 = {parameter1}, Parameter2 = {parameter2}";
-
-        return result;
-    }
-
-    private List<Duel> GetUpcomingDuels(List<Player> players)
-    {
-        List<Duel> upcomingDuels = new List<Duel>();
-
-        // Logic to match players based on Elo values
-        // You need to implement your own logic here based on your requirements
-
-        // Example: Matching players with similar Elo values
-        foreach (var player in players)
-        {
-            var opponent = players.Where(p => p.Id != player.Id)
-                .OrderBy(p => Math.Abs(p.EloRating - player.EloRating))
-                .FirstOrDefault();
-
-            if (opponent != null)
-            {
-                upcomingDuels.Add(new Duel { Player1 = player, Player2 = opponent });
-            }
-        }
-
->>>>>>> bf4355916aae301bcf91af9278502d4f1655710f
         return upcomingDuels;
     }
 }
