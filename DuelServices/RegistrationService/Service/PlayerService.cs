@@ -1,8 +1,8 @@
-using RegistrationService.Class;
+using RegistrationService.Interfaces;
 
 namespace RegistrationService.Service; 
 
-public class PlayerService {
+public class PlayerService : IPlayerService {
     private List<Player> players = new List<Player>();
     private int nextId = 1;
 
@@ -11,13 +11,15 @@ public class PlayerService {
         return players;
     }
 
+
+    /*
     public Player AddPlayer(string name)
     {
         Player newPlayer = new Player
         {
             Id = nextId++,
             Name = name,
-            EloRating = 1500 // Initial Elo rating
+            EloRating = 1500 
         };
         players.Add(newPlayer);
         return newPlayer;
@@ -33,4 +35,5 @@ public class PlayerService {
         }
         return playerToUpdate;
     }
+    */
 }

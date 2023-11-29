@@ -6,112 +6,118 @@ using System.Linq;
 
 namespace RegistrationService.Controllers;
 
+[ApiController]
 [Route("Registration")]
 public class RegistrationServiceController : Controller
 {
     private static List<Player> players = new List<Player>();
 
-        // POST /Registration
-        [HttpPost]
-        public IActionResult CreatePlayers([FromBody] List<Player> newPlayers)
+    [HttpGet("GetAllPlayers")]
+    public IActionResult GetAllPlayers()
+    {
+        return Ok(players);
+    }
+
+    [HttpPost("CreatePlayerlist")]
+    public IActionResult CreatePlayers([FromBody] List<Player> newPlayers)
+    {
+        if (newPlayers == null || newPlayers.Count == 0)
         {
-            if (newPlayers == null || newPlayers.Count == 0)
-            {
-                return BadRequest("Invalid player data");
-            }
-
-            foreach (var newPlayer in newPlayers)
-            {
-                if (string.IsNullOrWhiteSpace(newPlayer.Name))
-                {
-                    return BadRequest("Invalid player data");
-                }
-
-                newPlayer.EloRating = newPlayer.EloRating == 0 ? 1500 : newPlayer.EloRating;
-                newPlayer.Id = GenerateUniqueId();
-                players.Add(newPlayer);
-            }
-
-            return CreatedAtAction(nameof(GetAllPlayers), newPlayers);
+            return BadRequest("Invalid player data");
         }
 
-        // POST /Registration/SinglePlayer
-        [HttpPost("SinglePlayer")]
-        public IActionResult CreatePlayer([FromBody] Player newPlayer)
+        foreach (var newPlayer in newPlayers)
         {
-            if (newPlayer == null || string.IsNullOrWhiteSpace(newPlayer.Name))
+            if (string.IsNullOrWhiteSpace(newPlayer.Name))
             {
                 return BadRequest("Invalid player data");
             }
 
             newPlayer.EloRating = newPlayer.EloRating == 0 ? 1500 : newPlayer.EloRating;
-            newPlayer.Id = GenerateUniqueId();
+            newPlayer.Id = players.Count + 1;
             players.Add(newPlayer);
-
-            return CreatedAtAction(nameof(GetAllPlayers), new { id = newPlayer.Id }, newPlayer);
         }
 
-        // PUT /Registration
-        [HttpPut]
-        public IActionResult UpdatePlayers([FromBody] List<Player> updatedPlayers)
+        return CreatedAtAction(nameof(GetAllPlayers), newPlayers);
+    }
+
+    [HttpPost("CreatePlayer")]
+    public IActionResult CreatePlayer([FromBody] Player newPlayer)
+    {
+        if (newPlayer == null || string.IsNullOrWhiteSpace(newPlayer.Name))
         {
-            if (updatedPlayers == null || updatedPlayers.Count == 0)
+            return BadRequest("Invalid player data");
+        }
+
+        newPlayer.EloRating = newPlayer.EloRating == 0 ? 1500 : newPlayer.EloRating;
+        newPlayer.Id = players.Count + 1;
+        players.Add(newPlayer);
+
+        return CreatedAtAction(nameof(GetAllPlayers), new { id = newPlayer.Id }, newPlayer);
+    }
+
+    [HttpPut("UpdateEloRating/{playerId}/{eloDelta}")]
+    public IActionResult UpdateEloRating(int playerId, int eloDelta)
+    {
+        Player player = players.FirstOrDefault(p => p.Id == playerId);
+
+        if (player != null)
+        {
+            player.EloRating += eloDelta;
+            return Ok();
+        }
+        else
+        {
+            return NotFound($"Player with ID {playerId} not found.");
+        }
+    }
+    
+    [HttpPut("UpdatePlayerlist")]
+    public IActionResult UpdatePlayers([FromBody] List<Player> updatedPlayers)
+    {
+        if (updatedPlayers == null || updatedPlayers.Count == 0)
+        {
+            return BadRequest("Invalid player data");
+        }
+
+        foreach (var updatedPlayer in updatedPlayers)
+        {
+            if (string.IsNullOrWhiteSpace(updatedPlayer.Name))
             {
                 return BadRequest("Invalid player data");
             }
 
-            foreach (var updatedPlayer in updatedPlayers)
-            {
-                if (string.IsNullOrWhiteSpace(updatedPlayer.Name))
-                {
-                    return BadRequest("Invalid player data");
-                }
-
-                var existingPlayer = players.FirstOrDefault(p => p.Id == updatedPlayer.Id);
-
-                if (existingPlayer == null)
-                {
-                    return NotFound($"Player with ID {updatedPlayer.Id} not found");
-                }
-
-                existingPlayer.Name = updatedPlayer.Name;
-                existingPlayer.EloRating = updatedPlayer.EloRating;
-            }
-
-            return Ok(updatedPlayers);
-        }
-
-        // PUT /Registration/SinglePlayer/{id}
-        [HttpPut("SinglePlayer/{id}")]
-        public IActionResult UpdatePlayer(int id, [FromBody] Player updatedPlayer)
-        {
-            if (updatedPlayer == null || string.IsNullOrWhiteSpace(updatedPlayer.Name) || id != updatedPlayer.Id)
-            {
-                return BadRequest("Invalid player data");
-            }
-
-            var existingPlayer = players.FirstOrDefault(p => p.Id == id);
-
+            var existingPlayer = players.FirstOrDefault(p => p.Id == updatedPlayer.Id);
             if (existingPlayer == null)
             {
-                return NotFound();
+                return NotFound($"Player with ID {updatedPlayer.Id} not found");
             }
 
             existingPlayer.Name = updatedPlayer.Name;
             existingPlayer.EloRating = updatedPlayer.EloRating;
-
-            return Ok(existingPlayer);
         }
 
-        // GET /Registration
-        [HttpGet]
-        public IActionResult GetAllPlayers()
+        return Ok(updatedPlayers);
+    }
+
+    [HttpPut("UpdatePlayer/{id}")]
+    public IActionResult UpdatePlayer(int id, [FromBody] Player updatedPlayer)
+    {
+        if (updatedPlayer == null || string.IsNullOrWhiteSpace(updatedPlayer.Name) || id != updatedPlayer.Id)
         {
-            return Ok(players);
+            return BadRequest("Invalid player data");
         }
 
-        private int GenerateUniqueId()
+        var existingPlayer = players.FirstOrDefault(p => p.Id == id);
+
+        if (existingPlayer == null)
         {
-            return players.Count + 1;
+            return NotFound();
         }
+
+        existingPlayer.Name = updatedPlayer.Name;
+        existingPlayer.EloRating = updatedPlayer.EloRating;
+
+        return Ok(existingPlayer);
+    }
 }

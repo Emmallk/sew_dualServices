@@ -43,5 +43,7 @@ namespace DuelSimulation
             var response = await httpClient.PutAsJsonAsync("/Registration/UpdateElo", eloUpdate);
             response.EnsureSuccessStatusCode();
         }
+
+ 
     }
 }

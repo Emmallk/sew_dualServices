@@ -9,53 +9,46 @@ namespace PlayerStatisticsService.Controllers;
 [Route("Statistics")]
 public class PlayerStatisticsController : ControllerBase
     {
-        private readonly Dictionary<int, PlayerStatistics> playerStats = new Dictionary<int, PlayerStatistics>(); // Storing player statistics
+        private readonly Dictionary<int, PlayerStatistics> playerStatistics = new Dictionary<int, PlayerStatistics>(); // Storing player statistics
 
         [HttpGet]
-        public IActionResult GetAllPlayerStatistics()
-        {
-            return Ok(playerStats.Values);
-        }
+        public IActionResult GetAllPlayerStatistics() {
+            return Ok(playerStatistics.Values);
+        } 
 
         [HttpPost]
         public IActionResult UpdatePlayerStatistics([FromBody] DuelOutcome duelOutcome)
         {
-            if (duelOutcome == null)
-            {
+            if (duelOutcome == null) {
                 return BadRequest("Invalid duel outcome data.");
             }
-
-            // Assuming duelOutcome contains the IDs of the players involved and the outcome (win, loss, draw)
+            
             int winnerId = duelOutcome.WinnerId;
             int loserId = duelOutcome.LoserId;
 
-            if (!playerStats.ContainsKey(winnerId))
+            if (!playerStatistics.ContainsKey(winnerId))
             {
-                playerStats[winnerId] = new PlayerStatistics();
+                playerStatistics[winnerId] = new PlayerStatistics();
             }
 
-            if (!playerStats.ContainsKey(loserId))
+            if (!playerStatistics.ContainsKey(loserId))
             {
-                playerStats[loserId] = new PlayerStatistics();
+                playerStatistics[loserId] = new PlayerStatistics();
             }
 
             // Update statistics for the winner
-            playerStats[winnerId].NumberOfDuelsWon++;
-            playerStats[winnerId].NumberOfDuelsPlayed++;
+            playerStatistics[winnerId].NumberOfDuelsWon++;
+            playerStatistics[winnerId].NumberOfDuelsPlayed++;
 
             // Update statistics for the loser
-            playerStats[loserId].NumberOfDuelsLost++;
-            playerStats[loserId].NumberOfDuelsPlayed++;
-
-            // For a draw scenario (if applicable)
+            playerStatistics[loserId].NumberOfDuelsLost++;
+            playerStatistics[loserId].NumberOfDuelsPlayed++;
+            
             if (duelOutcome.IsDraw)
             {
-                playerStats[winnerId].NumberOfDuelsDraw++;
-                playerStats[loserId].NumberOfDuelsDraw++;
+                playerStatistics[winnerId].NumberOfDuelsDraw++;
+                playerStatistics[loserId].NumberOfDuelsDraw++;
             }
-
-            // Update other statistics as needed (e.g., average duel duration, last duel played, etc.)
-
             return Ok("Player statistics updated.");
         }
     }

@@ -11,9 +11,9 @@ public class RegistrationServiceClient
         this.httpClient = httpClient;
     }
 
-    public async Task<List<Player>> GetAllPlayers()
+    public async Task<List<Player>> GetPlayers()
     {
-        var response = await httpClient.GetFromJsonAsync<List<Player>>("/Registration/Players");
+        var response = await httpClient.GetFromJsonAsync<List<Player>>("/Registration");
         return response ?? new List<Player>();
     }
 }

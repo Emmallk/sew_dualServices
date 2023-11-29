@@ -1,5 +1,6 @@
 using DuelSimulation;
 using PlayerStatisticsService;
+using RegistrationService;
 
 namespace MatchmakingService;
 
@@ -18,9 +19,11 @@ public class StatisticsServiceClient
         return response ?? new Dictionary<int, PlayerStatistics>();
     }
     
-    public async Task UpdateGeneralStatistics(Duel duel, int result)
+    public async Task UpdateGeneralStatistics(Player player1, Player player2, int outcome)
     {
-        var response = await httpClient.PostAsJsonAsync("/Statistics/UpdateGeneralStatistics", new { duel, result });
+        var response = await httpClient.PostAsJsonAsync("/Statistics/UpdateGeneralStatistics", new { player1, player2, outcome });
         response.EnsureSuccessStatusCode();
     }
+
+
 }

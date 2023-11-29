@@ -469,23 +469,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sabrina\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\emmak\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj",
+      "projectUniqueName": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj",
       "projectName": "RegistrationService",
-      "projectPath": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj",
-      "packagesPath": "C:\\Users\\Sabrina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\obj\\",
+      "projectPath": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj",
+      "packagesPath": "C:\\Users\\emmak\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sabrina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\emmak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -493,6 +494,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -539,7 +541,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -18,7 +18,7 @@
     "lastPlayedDuel": "2023-11-24T21:15:30.500Z"
   },
   {
-    "id": 4,
+    "id": 4, 
     "name": "David",
     "eloRating": 1550,
     "lastPlayedDuel": "2023-11-26T10:00:00.000Z"

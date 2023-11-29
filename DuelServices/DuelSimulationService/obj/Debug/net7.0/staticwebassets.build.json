@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "co7/HBZqVjtl8EX4duSmj7F/NMyyWgbGVK6HlCLvxCg=",
+  "Hash": "1cz7Y1aFSpWMZHO3Pev5qaQ6gWbNY71Tb/UAbos6a9A=",
   "Source": "DuelSimulationService",
   "BasePath": "_content/DuelSimulationService",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\PlayerStatisticsService.csproj",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\PlayerStatisticsService.csproj",
       "Version": 2,
       "Source": "PlayerStatisticsService",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -18,7 +18,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\RegistrationService\\RegistrationService.csproj",
       "Version": 2,
       "Source": "RegistrationService",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -33,17 +33,17 @@
     {
       "Name": "PlayerStatisticsService\\wwwroot",
       "Source": "PlayerStatisticsService",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\DuelSimulationService\\obj\\Debug\\net7.0\\scopedcss\\bundle\\DuelSimulationService.styles.css",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\DuelSimulationService\\obj\\Debug\\net7.0\\scopedcss\\bundle\\DuelSimulationService.styles.css",
       "SourceId": "DuelSimulationService",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\DuelSimulationService\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\DuelSimulationService\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/DuelSimulationService",
       "RelativePath": "DuelSimulationService.styles.css",
       "AssetKind": "All",
@@ -54,13 +54,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\DuelSimulationService\\obj\\Debug\\net7.0\\scopedcss\\bundle\\DuelSimulationService.styles.css"
+      "OriginalItemSpec": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\DuelSimulationService\\obj\\Debug\\net7.0\\scopedcss\\bundle\\DuelSimulationService.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PlayerStatisticsService.bundle.scp.css",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PlayerStatisticsService.bundle.scp.css",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "PlayerStatisticsService.bundle.scp.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PlayerStatisticsService.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PlayerStatisticsService.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -91,10 +91,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -108,10 +108,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -125,10 +125,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -142,10 +142,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -159,10 +159,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -176,10 +176,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -193,10 +193,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -210,10 +210,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -244,10 +244,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -261,10 +261,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\css\\site.css",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -278,10 +278,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\favicon.png",
       "SourceId": "PlayerStatisticsService",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Sabrina\\source\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\DuelServices\\PlayerStatisticsService\\wwwroot\\",
       "BasePath": "_content/PlayerStatisticsService",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

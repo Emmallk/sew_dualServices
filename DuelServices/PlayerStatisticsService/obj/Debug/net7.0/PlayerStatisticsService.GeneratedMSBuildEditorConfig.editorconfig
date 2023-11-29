@@ -9,53 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PlayerStatisticsService
 build_property.RootNamespace = PlayerStatisticsService
-build_property.ProjectDir = C:\Users\Sabrina\source\repos\sew_dualServices\DuelServices\PlayerStatisticsService\
+build_property.ProjectDir = C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Sabrina\source\repos\sew_dualServices\DuelServices\PlayerStatisticsService
+build_property.MSBuildProjectDirectory = C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\PlayerStatisticsService
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/App.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/Counter.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/FetchData.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/Index.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/PlayerStatisticsPage.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/PlayerStatisticsPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyU3RhdGlzdGljc1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Shared/SurveyPrompt.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/_Imports.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Shared/MainLayout.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-t0aj83n5lv
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Shared/NavMenu.razor]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hggrtv4bh7
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/Error.cshtml]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sabrina/source/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/_Host.cshtml]
+[C:/Users/emmak/_Daten_EK/repos/sew_dualServices/DuelServices/PlayerStatisticsService/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
