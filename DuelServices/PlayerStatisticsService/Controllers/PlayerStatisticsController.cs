@@ -5,63 +5,57 @@ using System.Linq;
 using RegistrationService;
 
 namespace PlayerStatisticsService.Controllers;
+[ApiController]
 [Route("Statistics")]
-    public class PlayerStatisticsController : Controller
+public class PlayerStatisticsController : ControllerBase
     {
-        private static List<PlayerStatistics> playerStatisticsList = new List<PlayerStatistics>();
+        private readonly Dictionary<int, PlayerStatistics> playerStats = new Dictionary<int, PlayerStatistics>(); // Storing player statistics
 
         [HttpGet]
-        public IActionResult GetPlayerStatistics()
+        public IActionResult GetAllPlayerStatistics()
         {
-            return Ok(playerStatisticsList);
+            return Ok(playerStats.Values);
         }
 
         [HttpPost]
         public IActionResult UpdatePlayerStatistics([FromBody] DuelOutcome duelOutcome)
         {
-            var player1Statistics = GetOrCreatePlayerStatistics(duelOutcome.Player1Id, duelOutcome.Player1Name);
-            var player2Statistics = GetOrCreatePlayerStatistics(duelOutcome.Player2Id, duelOutcome.Player2Name);
-
-            UpdateStatistics(player1Statistics, duelOutcome.Result);
-            UpdateStatistics(player2Statistics, duelOutcome.Result);
-
-            return Ok();
-        }
-
-        private PlayerStatistics GetOrCreatePlayerStatistics(int playerId, string playerName)
-        {
-            var playerStatistics = playerStatisticsList.FirstOrDefault(p => p.PlayerId == playerId);
-            if (playerStatistics == null)
+            if (duelOutcome == null)
             {
-                playerStatistics = new PlayerStatistics
-                {
-                    PlayerId = playerId,
-                    PlayerName = playerName
-                };
-                playerStatisticsList.Add(playerStatistics);
-            }
-            return playerStatistics;
-        }
-
-        private void UpdateStatistics(PlayerStatistics playerStatistics, DuelResult result)
-        {
-            playerStatistics.NumberOfDuelsPlayed++;
-            switch (result)
-            {
-                case DuelResult.Won:
-                    playerStatistics.NumberOfDuelsWon++;
-                    break;
-                case DuelResult.Lost:
-                    playerStatistics.NumberOfDuelsLost++;
-                    break;
-                case DuelResult.Draw:
-                    playerStatistics.NumberOfDuelsDraw++;
-                    break;
+                return BadRequest("Invalid duel outcome data.");
             }
 
-            // Update other statistics as needed
-            // ...
+            // Assuming duelOutcome contains the IDs of the players involved and the outcome (win, loss, draw)
+            int winnerId = duelOutcome.WinnerId;
+            int loserId = duelOutcome.LoserId;
 
-            playerStatistics.LastDuelPlayedAt = System.DateTime.UtcNow;
+            if (!playerStats.ContainsKey(winnerId))
+            {
+                playerStats[winnerId] = new PlayerStatistics();
+            }
+
+            if (!playerStats.ContainsKey(loserId))
+            {
+                playerStats[loserId] = new PlayerStatistics();
+            }
+
+            // Update statistics for the winner
+            playerStats[winnerId].NumberOfDuelsWon++;
+            playerStats[winnerId].NumberOfDuelsPlayed++;
+
+            // Update statistics for the loser
+            playerStats[loserId].NumberOfDuelsLost++;
+            playerStats[loserId].NumberOfDuelsPlayed++;
+
+            // For a draw scenario (if applicable)
+            if (duelOutcome.IsDraw)
+            {
+                playerStats[winnerId].NumberOfDuelsDraw++;
+                playerStats[loserId].NumberOfDuelsDraw++;
+            }
+
+            // Update other statistics as needed (e.g., average duel duration, last duel played, etc.)
+
+            return Ok("Player statistics updated.");
         }
     }

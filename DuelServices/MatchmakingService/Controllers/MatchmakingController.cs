@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using PlayerStatisticsService;
 using PlayerStatisticsService.Interfaces;
 using RegistrationService;
 
@@ -11,6 +12,7 @@ namespace MatchmakingService.Controllers;
 
 
 [Route("Matchmaking")]
+[ApiController]
 public class MatchmakingServiceController : Controller
 {
     private readonly RegistrationServiceClient registrationServiceClient;
@@ -23,7 +25,7 @@ public class MatchmakingServiceController : Controller
     }
 
     // GET /Matchmaking
-    [HttpGet]
+    /*[HttpGet]
     public async Task<IActionResult> GetMatchmaking()
     {
         var registeredPlayers = await registrationServiceClient.GetAllPlayers();
@@ -35,10 +37,45 @@ public class MatchmakingServiceController : Controller
 
         var upcomingDuels = GenerateUpcomingDuels(orderedPlayers);
         return Ok(upcomingDuels);
+    }*/
+
+    [HttpGet("Matchmake")]
+    public async Task<IActionResult> MatchmakePlayers()
+    {
+        List<Player> players = await registrationServiceClient.GetAllPlayers();
+        Dictionary<int, PlayerStatistics> playerStatistics = await statisticsServiceClient.GetPlayerStatistics();
+
+        if (players.Count < 2)
+        {
+            return BadRequest("Insufficient players for matchmaking.");
+        }
+
+        // Filter players with suitable conditions for matchmaking (example: Elo rating difference less than 100)
+        var eligiblePlayers = players.Where(p => playerStatistics.ContainsKey(p.Id) && p.EloRating > 1000); // Example condition
+
+        if (!eligiblePlayers.Any())
+        {
+            return BadRequest("No eligible players for matchmaking.");
+        }
+
+        List<Duel> upcomingDuels = new List<Duel>();
+
+        // Example logic for matchmaking based on suitable conditions
+        foreach (var player in eligiblePlayers)
+        {
+            var opponent = eligiblePlayers.FirstOrDefault(p => p.Id != player.Id); // Simple logic for finding an opponent
+
+            if (opponent != null)
+            {
+                upcomingDuels.Add(new Duel { Player1 = player, Player2 = opponent });
+            }
+        }
+
+        // For demonstration purposes, returning the generated duels
+        return Ok(upcomingDuels);
     }
 
-
-    private List<Duel> GenerateUpcomingDuels(List<Player> orderedPlayers)
+    /*private List<Duel> GenerateUpcomingDuels(List<Player> orderedPlayers)
     {
         var upcomingDuels = new List<Duel>();
         for (int i = 0; i < orderedPlayers.Count - 1; i++)
@@ -58,5 +95,5 @@ public class MatchmakingServiceController : Controller
             }
         }
         return upcomingDuels;
-    }
+    }*/
 }

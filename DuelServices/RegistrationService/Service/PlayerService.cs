@@ -23,7 +23,7 @@ public class PlayerService {
         return newPlayer;
     }
 
-    public Player UpdatePlayer(int id, string name, double eloRating)
+    public Player UpdatePlayer(int id, string name, int eloRating)
     {
         Player playerToUpdate = players.FirstOrDefault(p => p.Id == id);
         if (playerToUpdate != null)

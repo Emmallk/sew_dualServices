@@ -9,6 +9,9 @@ public class PlayerStatistics
     
     public int PlayerId { get; set; }
     public string PlayerName { get; set; }
+    
+    public int CurrentEloRating { get; set; }
+
     public int NumberOfDuelsPlayed { get; set; }
     public int NumberOfDuelsWon { get; set; }
     public int NumberOfDuelsLost { get; set; }

@@ -43,62 +43,94 @@ public class DuelSimulationController : Controller
             // Simulate and update Elo for each duel
             foreach (var duel in upcomingDuels)
             {
-                SimulateDuel(duel);
+                SimulateDuels();
             }
             await Task.Delay(10_000);
         }
     }
 
-    private void SimulateDuel(Duel duel)
+    [HttpPost("SimulateDuels")]
+    public async Task<IActionResult> SimulateDuels()
     {
-        var random = new Random();  // Simulation random gewinner
-        var result = random.Next(0, 3); // 0: Draw, 1: Player1 wins, 2: Player2 wins
-
-        switch (result)
+        try
         {
-            case 0: // Draw, no Elo changes
-                break;
-            case 1: // Player1 wins
-                UpdateElo(duel.Player1, duel.Player2);
-                break;
-            case 2: // Player2 wins
-                UpdateElo(duel.Player2, duel.Player1);
-                break;
+            List<Duel> upcomingDuels = await matchmakingServiceClient.GetMatchmaking();
+
+            if (upcomingDuels.Count == 0)
+            {
+                return BadRequest("No upcoming duels found.");
+            }
+
+            foreach (var duel in upcomingDuels)
+            {
+                Player player1 = duel.Player1;
+                Player player2 = duel.Player2;
+
+                // Simulate duel outcome (assuming 33% chance for each outcome - win, lose, draw)
+                int outcome = SimulateDuelOutcome();
+
+                int eloDelta = CalculateEloDelta(player1.EloRating, player2.EloRating, outcome);
+
+                if (outcome == 1) // Player 1 wins
+                {
+                    await registrationServiceClient.UpdateEloRating(player1.Id, eloDelta);
+                    await registrationServiceClient.UpdateEloRating(player2.Id, -eloDelta);
+                    await UpdatePlayerStatistics(player1.Id, player2.Id, true);
+                }
+                else if (outcome == -1) // Player 2 wins
+                {
+                    await registrationServiceClient.UpdateEloRating(player1.Id, -eloDelta);
+                    await registrationServiceClient.UpdateEloRating(player2.Id, eloDelta);
+                    await UpdatePlayerStatistics(player2.Id, player1.Id, true);
+                }
+                else // Draw
+                {
+                    // No change in Elo ratings for a draw
+                    await UpdatePlayerStatistics(player1.Id, player2.Id, false);
+                }
+            }
+
+            return Ok("Duels simulated and player data updated.");
         }
-
-        // Update general statistics (you can customize this based on your actual needs)
-        UpdateGeneralStatistics(duel, result);
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error simulating duels: {ex.Message}");
+        }
     }
 
-    private void UpdateElo(Player winner, Player loser)
+    // SimulateDuelOutcome method to randomly determine the outcome of a duel
+    private int SimulateDuelOutcome()
     {
-        var kFactor = 32;
+        Random random = new Random();
+        int outcome = random.Next(1, 4); // Generates a random number between 1 and 3
 
-        var expectedWinProbability = 1.0 / (1.0 + Math.Pow(10, (loser.EloRating - winner.EloRating) / 400.0));
-        var eloChange = (int)(kFactor * (1 - expectedWinProbability));
-
-        winner.EloRating += eloChange;
-        loser.EloRating -= eloChange;
-
-        // Update Elo values in the Registration Service
-        registrationServiceClient.UpdateElo(winner.Id, winner.EloRating);
-        registrationServiceClient.UpdateElo(loser.Id, loser.EloRating);
+        if (outcome == 1 || outcome == 2)
+        {
+            return outcome; // 1 or 2 means either Player 1 or Player 2 wins
+        }
+        else
+        {
+            return 0; // 0 means a draw
+        }
     }
 
-    /*
-    private double ExpectationToWin(int playerOneRating, int playerTwoRating)
-    {
-        return 1 / (1 + Math.Pow(10, (playerTwoRating - playerOneRating) / 400.0));
-    }
-
-    private int CalculateEloDelta(int playerOneRating, int playerTwoRating)
+    private int CalculateEloDelta(int playerOneRating, int playerTwoRating, bool playerOneWins)
     {
         int eloK = 32;
-        return (int)(eloK * (1 - ExpectationToWin(playerOneRating, playerTwoRating)));
+        double expectationToWin = 1 / (1 + Math.Pow(10, (playerTwoRating - playerOneRating) / 400.0));
+        int eloDelta = (int)(eloK * (playerOneWins ? (1 - expectationToWin) : (-expectationToWin)));
+        return eloDelta;
     }
-    */
-    private void UpdateGeneralStatistics(Duel duel, int result)
+
+    private async Task UpdatePlayerStatistics(int playerId1, int playerId2, bool player1Wins)
     {
-        statisticsServiceClient.UpdateGeneralStatistics(duel, result);
+        if (player1Wins)
+        {
+            await statisticsServiceClient.UpdateStatistics(playerId1, playerId2, true);
+        }
+        else
+        {
+            await statisticsServiceClient.UpdateStatistics(playerId2, playerId1, false);
+        }
     }
 }
