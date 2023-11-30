@@ -2,8 +2,9 @@ using DuelSimulation;
 using PlayerStatisticsService;
 using RegistrationService;
 
-namespace MatchmakingService;
+//namespace Du;
 
+/*
 public class StatisticsServiceClient
 {
     private readonly HttpClient httpClient;
@@ -27,3 +28,4 @@ public class StatisticsServiceClient
 
 
 }
+*/

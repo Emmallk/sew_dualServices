@@ -8,28 +8,22 @@ namespace RegistrationService.Controllers;
 
 [ApiController]
 [Route("Registration")]
-public class RegistrationServiceController : Controller
-{
+public class RegistrationServiceController : Controller {
     private static List<Player> players = new List<Player>();
 
     [HttpGet("GetAllPlayers")]
-    public IActionResult GetAllPlayers()
-    {
+    public IActionResult GetAllPlayers() {
         return Ok(players);
     }
 
     [HttpPost("CreatePlayerlist")]
-    public IActionResult CreatePlayers([FromBody] List<Player> newPlayers)
-    {
-        if (newPlayers == null || newPlayers.Count == 0)
-        {
+    public IActionResult CreatePlayers([FromBody] List<Player> newPlayers) {
+        if (newPlayers == null || newPlayers.Count == 0) {
             return BadRequest("Invalid player data");
         }
 
-        foreach (var newPlayer in newPlayers)
-        {
-            if (string.IsNullOrWhiteSpace(newPlayer.Name))
-            {
+        foreach (var newPlayer in newPlayers) {
+            if (string.IsNullOrWhiteSpace(newPlayer.Name)) {
                 return BadRequest("Invalid player data");
             }
 
@@ -42,10 +36,8 @@ public class RegistrationServiceController : Controller
     }
 
     [HttpPost("CreatePlayer")]
-    public IActionResult CreatePlayer([FromBody] Player newPlayer)
-    {
-        if (newPlayer == null || string.IsNullOrWhiteSpace(newPlayer.Name))
-        {
+    public IActionResult CreatePlayer([FromBody] Player newPlayer) {
+        if (newPlayer == null || string.IsNullOrWhiteSpace(newPlayer.Name)) {
             return BadRequest("Invalid player data");
         }
 
@@ -57,39 +49,31 @@ public class RegistrationServiceController : Controller
     }
 
     [HttpPut("UpdateEloRating/{playerId}/{eloDelta}")]
-    public IActionResult UpdateEloRating(int playerId, int eloDelta)
-    {
+    public IActionResult UpdateEloRating(int playerId, int eloDelta) {
         Player player = players.FirstOrDefault(p => p.Id == playerId);
 
-        if (player != null)
-        {
+        if (player != null) {
             player.EloRating += eloDelta;
             return Ok();
         }
-        else
-        {
+        else {
             return NotFound($"Player with ID {playerId} not found.");
         }
     }
-    
+
     [HttpPut("UpdatePlayerlist")]
-    public IActionResult UpdatePlayers([FromBody] List<Player> updatedPlayers)
-    {
-        if (updatedPlayers == null || updatedPlayers.Count == 0)
-        {
+    public IActionResult UpdatePlayers([FromBody] List<Player> updatedPlayers) {
+        if (updatedPlayers == null || updatedPlayers.Count == 0) {
             return BadRequest("Invalid player data");
         }
 
-        foreach (var updatedPlayer in updatedPlayers)
-        {
-            if (string.IsNullOrWhiteSpace(updatedPlayer.Name))
-            {
+        foreach (var updatedPlayer in updatedPlayers) {
+            if (string.IsNullOrWhiteSpace(updatedPlayer.Name)) {
                 return BadRequest("Invalid player data");
             }
 
             var existingPlayer = players.FirstOrDefault(p => p.Id == updatedPlayer.Id);
-            if (existingPlayer == null)
-            {
+            if (existingPlayer == null) {
                 return NotFound($"Player with ID {updatedPlayer.Id} not found");
             }
 
@@ -101,17 +85,14 @@ public class RegistrationServiceController : Controller
     }
 
     [HttpPut("UpdatePlayer/{id}")]
-    public IActionResult UpdatePlayer(int id, [FromBody] Player updatedPlayer)
-    {
-        if (updatedPlayer == null || string.IsNullOrWhiteSpace(updatedPlayer.Name) || id != updatedPlayer.Id)
-        {
+    public IActionResult UpdatePlayer(int id, [FromBody] Player updatedPlayer) {
+        if (updatedPlayer == null || string.IsNullOrWhiteSpace(updatedPlayer.Name) || id != updatedPlayer.Id) {
             return BadRequest("Invalid player data");
         }
 
         var existingPlayer = players.FirstOrDefault(p => p.Id == id);
 
-        if (existingPlayer == null)
-        {
+        if (existingPlayer == null) {
             return NotFound();
         }
 

@@ -6,6 +6,7 @@ using RegistrationService;
 
 namespace DuelSimulation
 {
+    /*
     public class RegistrationServiceClient
     {
         private readonly HttpClient httpClient;
@@ -46,4 +47,5 @@ namespace DuelSimulation
 
  
     }
+    */
 }

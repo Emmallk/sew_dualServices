@@ -1,5 +1,5 @@
 ﻿@page "/playerstatistics"
-@inject HttpClient httpClient
+@inject HttpClient _httpClient
 
 <PageTitle>Statistics</PageTitle>
 <h3>Player Statistics</h3>
@@ -49,6 +49,6 @@ else
 
     private async Task LoadPlayerStatistics()
     {
-        playerStatisticsList = await httpClient.GetFromJsonAsync<List<PlayerStatistics>>("Statistics");
+        playerStatisticsList = await _httpClient.GetFromJsonAsync<List<PlayerStatistics>>("http://localhost:5150/Statistics/GetAllPlayerStatistics");
     }
 }

@@ -6,5 +6,5 @@ public class Player
     public string Name { get; set; }
     public int EloRating { get; set; }
     
-    public DateTime? LastPlayedDuel { get; set; }
+    //public DateTime? LastPlayedDuel { get; set; }
 }
