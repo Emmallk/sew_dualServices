@@ -14,120 +14,20 @@ namespace MatchmakingService.Controllers;
 [Route("Matchmaking")]
 [ApiController]
 public class MatchmakingServiceController : Controller {
-    private List<Player> players = new List<Player>();
-    private List<PlayerStatistics> playerStatistics = new List<PlayerStatistics>();
+    //private List<Player> players = new List<Player>();
+    //private List<PlayerStatistics> playerStatistics = new List<PlayerStatistics>();
     private static HttpClient _httpClient = new HttpClient();
 
+    //HTTP Clients von Registration und Statistics Servies (siehe Files)
     private RegistrationServiceClient _registrationService = new RegistrationServiceClient(_httpClient);
-
     private StatisticsServiceClient _statisticsServiceClient = new StatisticsServiceClient(_httpClient);
-
-    /*
-    // [HttpGet("GetPlayers")] 
-    public async Task<List<Player>> GetPlayers() {
-     //   try {
-            HttpResponseMessage response =
-                await _httpClient.GetAsync(
-                    "http://localhost:5099/Registration/GetAllPlayers"); // wenn man die daten im Matchmaking ausführt
-            //HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5254/Registration/GetAllPlayers"); // wenn man die daten im Registration Tap ausführt
-            if (response.IsSuccessStatusCode) {
-                string content = await response.Content.ReadAsStringAsync();
-                players = JsonSerializer.Deserialize<List<Player>>(content,
-                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                return players;
-            }
-
-            return null;
-            /*
-            else {
-                // return StatusCode((int)response.StatusCode, "Fehler beim Abrufen von Spielern von RegistrationService");
-                return players;
-            }
-        }
-        catch (Exception ex) {
-            // return StatusCode(500, $"Interner Serverfehler: {ex.Message}");
-            return players;
-        }
-    }
-    */
-    /*
-    [HttpGet("GetStatistic")]
-    public async Task<List<PlayerStatistics>> GetStatistic() {
-        //try {
-            HttpResponseMessage response =
-                await _httpClient.GetAsync("http://localhost:5099/Statistics/GetAllPlayerStatistics");
-            if (response.IsSuccessStatusCode) {
-                string content = await response.Content.ReadAsStringAsync();
-                playerStatistics = JsonSerializer.Deserialize<List<PlayerStatistics>>(content,
-                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                return playerStatistics;
-            }
-            return null;
-            /*
-            else {
-                //return StatusCode((int)response.StatusCode, "Fehler beim Abrufen von Spielern von RegistrationService");
-                return playerStatistics;
-            }
-        }
-        catch (Exception ex) {
-            //return StatusCode(500, $"Interner Serverfehler: {ex.Message}");
-            return playerStatistics;
-        }
-        
-    }
-
-*/
-
-    /*
-    [HttpGet("GetMatchmaking")]
-    public async Task<IActionResult> MatchmakePlayers() {
-        players = _registrationService.GetPlayersFromRemoteService();
-        playerStatistics = _statisticsServiceClient.GetPlayerStatisticsFromRemoteService();
-        if (players.Count < 2)
-            return BadRequest("Insufficient players for matchmaking.");
-        var eligiblePlayers = players.Where(p => playerStatistics.Any(ps => ps.PlayerId == p.Id) && p.EloRating > 1000);
-
-        if (!eligiblePlayers.Any())
-            return BadRequest("No eligible players for matchmaking.");
-
-        eligiblePlayers = eligiblePlayers.OrderBy(p => {
-            var playerStat = playerStatistics.FirstOrDefault(ps => ps.PlayerId == p.Id);
-            return playerStat?.LastDuelPlayedAt ?? DateTime.MinValue;
-        });
-
-        List<Duel> upcomingDuels = new List<Duel>();
-
-        foreach (var player in eligiblePlayers) {
-            var opponent = FindBestOpponent(player, eligiblePlayers, upcomingDuels);
-
-            if (opponent != null)
-                upcomingDuels.Add(new Duel { Player1 = player, Player2 = opponent });
-        }
-        return Ok(upcomingDuels);
-    }
-
-    private Player FindBestOpponent(Player player, IEnumerable<Player> eligiblePlayers,
-        IEnumerable<Duel> upcomingDuels) {
-        // Filtern Sie bereits ausgewählte Gegner aus
-        var availableOpponents = eligiblePlayers.Where(p => p.Id != player.Id && !IsPlayerSelected(p, upcomingDuels));
-        // Sortieren Sie Gegner nach Elo-Differenz
-        availableOpponents = availableOpponents.OrderBy(p => Math.Abs(p.EloRating - player.EloRating));
-        return availableOpponents.FirstOrDefault();
-    }
-
-    private bool IsPlayerSelected(Player player, IEnumerable<Duel> upcomingDuels) {
-        // Überprüfen Sie, ob der Spieler bereits in einem bevorstehenden Duell ausgewählt wurde
-        return upcomingDuels.Any(duel => duel.Player1.Id == player.Id || duel.Player2.Id == player.Id);
-    }
-    */
     
-    // TODO: aswahlkriterien hinterfragen
-    
+
     [HttpGet("Matchmaking")]
     public async Task<IActionResult> MatchmakePlayers()
     {
-        List<Player> players = _registrationService.GetPlayersFromRemoteService();
-        List<PlayerStatistics> playerStatistics = _statisticsServiceClient.GetPlayerStatisticsFromRemoteService();
+        List<Player> players =  await _registrationService.GetPlayersFromRemoteService();
+        List<PlayerStatistics> playerStatistics = await _statisticsServiceClient.GetPlayerStatisticsFromRemoteService();
         
         List<Player> sortedPlayers = SortPlayers(players, playerStatistics);
         List<Duel> upcomingDuels = GenerateUpcomingDuels(sortedPlayers);
@@ -159,64 +59,10 @@ public class MatchmakingServiceController : Controller {
             {
                 Player1 = sortedPlayers[i],
                 Player2 = sortedPlayers[i + 1],
-                ScheduledTime = DateTime.Now
+
             };
             upcomingDuels.Add(duel);
         }
         return upcomingDuels;
     }
-    
-    /*
-    [HttpGet("Matchmaking")]
-    public async Task<IActionResult> MatchmakePlayers() {
-        players = _registrationService.GetPlayersFromRemoteService();
-        playerStatistics = _statisticsServiceClient.GetPlayerStatisticsFromRemoteService();
-        if (players.Count < 2)
-            return BadRequest("Insufficient players for matchmaking.");
-
-        var eligiblePlayers = players.Where(p => playerStatistics.Any(ps => ps.PlayerId == p.Id) && p.EloRating > 1000);
-
-        if (!eligiblePlayers.Any())
-            return BadRequest("No eligible players for matchmaking.");
-
-        eligiblePlayers = eligiblePlayers.OrderBy(p => {
-            var playerStat = playerStatistics.FirstOrDefault(ps => ps.PlayerId == p.Id);
-            return playerStat?.LastDuelPlayedAt ?? DateTime.MinValue;
-        });
-
-        List<Duel> upcomingDuels = new List<Duel>();
-        List<Player> selectedPlayers = new List<Player>(); // Liste für bereits ausgewählte Spieler
-
-        foreach (var player in eligiblePlayers) {
-            var opponent = FindBestOpponent(player, eligiblePlayers.Except(selectedPlayers), upcomingDuels);
-
-            if (opponent != null) {
-                upcomingDuels.Add(new Duel { Player1 = player, Player2 = opponent });
-                selectedPlayers.Add(player); // Hinzufügen des Spielers zur Liste der ausgewählten Spieler
-                selectedPlayers.Add(opponent); // Hinzufügen des Gegners zur Liste der ausgewählten Spieler
-            }
-        }
-        return Ok(upcomingDuels);
-    }
-    */
-    /*
-    private Player FindBestOpponent(Player player, IEnumerable<Player> eligiblePlayers,
-        IEnumerable<Duel> upcomingDuels) {
-        var availableOpponents = eligiblePlayers.Where(p => p.Id != player.Id && !IsPlayerSelected(p, upcomingDuels));
-        availableOpponents = availableOpponents.OrderBy(p => Math.Abs(p.EloRating - player.EloRating));
-        return availableOpponents.FirstOrDefault();
-    }
-    */
-    /*
-    private Player FindBestOpponent(Player player, IEnumerable<Player> eligiblePlayers, IEnumerable<Duel> upcomingDuels) {
-        var availableOpponents = eligiblePlayers
-            .Where(p => p.Id != player.Id && !IsPlayerSelected(p, upcomingDuels))
-            .OrderBy(p => Math.Abs(p.EloRating - player.EloRating));
-
-        return availableOpponents.FirstOrDefault();
-    }
-    private bool IsPlayerSelected(Player player, IEnumerable<Duel> upcomingDuels) {
-        return upcomingDuels.Any(duel => duel.Player1.Id == player.Id || duel.Player2.Id == player.Id);
-    }
-    */
 }
