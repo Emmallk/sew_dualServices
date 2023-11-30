@@ -16,6 +16,7 @@
 
 
     <ItemGroup>
+      <ProjectReference Include="..\MatchmakingService\MatchmakingService.csproj" />
       <ProjectReference Include="..\PlayerStatisticsService\PlayerStatisticsService.csproj" />
       <ProjectReference Include="..\RegistrationService\RegistrationService.csproj" />
     </ItemGroup>

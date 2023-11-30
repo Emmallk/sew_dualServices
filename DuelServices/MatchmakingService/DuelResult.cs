@@ -1,4 +1,4 @@
-namespace PlayerStatisticsService;
+namespace MatchmakingService;
 
 public enum DuelResult
 {

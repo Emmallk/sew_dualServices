@@ -1,7 +1,8 @@
 using PlayerStatisticsService;
+using System.Text.Json;
+using MatchmakingService;
 
 namespace DuelSimulation;
-using System.Text.Json;
 
 public class DuelBgService : BackgroundService {
     private static HttpClient _httpClient = new HttpClient();
@@ -9,11 +10,13 @@ public class DuelBgService : BackgroundService {
     private MatchmakingServiceClient _matchmakingServiceClient = new MatchmakingServiceClient(_httpClient);
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken) {
-        upcomingDuels = await _matchmakingServiceClient.GetMatchedPlayers();
         while (!stoppingToken.IsCancellationRequested) {
+            upcomingDuels = await _matchmakingServiceClient.GetMatchedPlayers();
             foreach (var duel in upcomingDuels) {
                 int outcome = SimulateDuelOutcome();
                 int eloDelta = CalculateEloDelta(duel.Player1.EloRating, duel.Player2.EloRating);
+
+                Console.WriteLine(eloDelta);
 
                 if (outcome == 1) // Player 1 wins
                 {
@@ -31,9 +34,10 @@ public class DuelBgService : BackgroundService {
                 {
                     UpdateStatistics(duel);
                 }
+                Console.WriteLine(duel.Player1.Name + " vs " + duel.Player2.Name );
+                await Task.Delay(10_000);
             }
-
-            await Task.Delay(10_000);
+          //  await Task.Delay(10_000);
         }
     }
     
@@ -53,16 +57,15 @@ public class DuelBgService : BackgroundService {
         int eloK = 32;
         return (int)(eloK * (1 - ExpectationToWin(playerOneRating, playerTwoRating)));
     }
-
+    
     private async Task UpdateEloRating(int playerId, int neweloDelta)
     {
-        await _httpClient.PutAsync($"http://localhost:5098/Registration/UpdateEloRating/{playerId}/{neweloDelta}",
-            null);
+        Console.WriteLine(playerId + " " + neweloDelta);
+        await _httpClient.PutAsync($"http://localhost:5099/Registration/UpdateEloRating/{playerId}/{neweloDelta}", null);
     }
     private async Task UpdateStatistics(Duel duel)
     {
-        await _httpClient.PutAsync($"http://localhost:5100/Statistics/UpdatePlayerStatistics",
-            new StringContent(JsonSerializer.Serialize(duel)));
+        Console.WriteLine("hier");
+        await _httpClient.PostAsJsonAsync($"http://localhost:5150/Statistics/UpdatePlayerStatistics", duel);
     }
-
 }

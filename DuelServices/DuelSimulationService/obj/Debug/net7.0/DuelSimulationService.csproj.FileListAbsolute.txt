@@ -127,3 +127,9 @@ C:\Users\Sabrina\source\repos\sew_dualServices\DuelServices\DuelSimulationServic
 C:\Users\Sabrina\source\repos\sew_dualServices\DuelServices\DuelSimulationService\obj\Debug\net7.0\DuelSimulationService.pdb
 C:\Users\Sabrina\source\repos\sew_dualServices\DuelServices\DuelSimulationService\obj\Debug\net7.0\DuelSimulationService.genruntimeconfig.cache
 C:\Users\Sabrina\source\repos\sew_dualServices\DuelServices\DuelSimulationService\obj\Debug\net7.0\ref\DuelSimulationService.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\DuelSimulationService\bin\Debug\net7.0\MatchmakingService.deps.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\DuelSimulationService\bin\Debug\net7.0\MatchmakingService.runtimeconfig.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\DuelSimulationService\bin\Debug\net7.0\MatchmakingService.staticwebassets.runtime.json
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\DuelSimulationService\bin\Debug\net7.0\MatchmakingService.exe
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\DuelSimulationService\bin\Debug\net7.0\MatchmakingService.dll
+C:\Users\emmak\_Daten_EK\repos\sew_dualServices\DuelServices\DuelSimulationService\bin\Debug\net7.0\MatchmakingService.pdb

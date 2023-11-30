@@ -120,7 +120,54 @@ public class MatchmakingServiceController : Controller {
         return upcomingDuels.Any(duel => duel.Player1.Id == player.Id || duel.Player2.Id == player.Id);
     }
     */
-    [HttpGet("GetMatchmaking")]
+    
+    // TODO: aswahlkriterien hinterfragen
+    
+    [HttpGet("Matchmaking")]
+    public async Task<IActionResult> MatchmakePlayers()
+    {
+        List<Player> players = _registrationService.GetPlayersFromRemoteService();
+        List<PlayerStatistics> playerStatistics = _statisticsServiceClient.GetPlayerStatisticsFromRemoteService();
+        
+        List<Player> sortedPlayers = SortPlayers(players, playerStatistics);
+        List<Duel> upcomingDuels = GenerateUpcomingDuels(sortedPlayers);
+        
+        return Ok(upcomingDuels);
+    }
+
+    private List<Player> SortPlayers(List<Player> players, List<PlayerStatistics> playerStatistics)
+    {
+        // Sortieren nach EloRating und GetLastDuelTime
+        List<Player> sortedPlayers = players.OrderByDescending(p => p.EloRating)
+            .ThenBy(p => GetLastDuelTime(playerStatistics, p.Id))
+            .ToList();
+        return sortedPlayers;
+    }
+
+    private DateTime? GetLastDuelTime(List<PlayerStatistics> playerStatistics, int playerId)
+    {
+        return playerStatistics.FirstOrDefault(ps => ps.PlayerId == playerId)?.LastDuelPlayedAt;
+    }
+
+    private List<Duel> GenerateUpcomingDuels(List<Player> sortedPlayers)
+    {
+        List<Duel> upcomingDuels = new List<Duel>();
+        // ähnlichsten EloRating und je nach LetztenGame Spieler zusammen paaren
+        for (int i = 0; i < sortedPlayers.Count - 1; i += 2)
+        {
+            Duel duel = new Duel
+            {
+                Player1 = sortedPlayers[i],
+                Player2 = sortedPlayers[i + 1],
+                ScheduledTime = DateTime.Now
+            };
+            upcomingDuels.Add(duel);
+        }
+        return upcomingDuels;
+    }
+    
+    /*
+    [HttpGet("Matchmaking")]
     public async Task<IActionResult> MatchmakePlayers() {
         players = _registrationService.GetPlayersFromRemoteService();
         playerStatistics = _statisticsServiceClient.GetPlayerStatisticsFromRemoteService();
@@ -149,18 +196,27 @@ public class MatchmakingServiceController : Controller {
                 selectedPlayers.Add(opponent); // Hinzufügen des Gegners zur Liste der ausgewählten Spieler
             }
         }
-
         return Ok(upcomingDuels);
     }
-
+    */
+    /*
     private Player FindBestOpponent(Player player, IEnumerable<Player> eligiblePlayers,
         IEnumerable<Duel> upcomingDuels) {
         var availableOpponents = eligiblePlayers.Where(p => p.Id != player.Id && !IsPlayerSelected(p, upcomingDuels));
         availableOpponents = availableOpponents.OrderBy(p => Math.Abs(p.EloRating - player.EloRating));
         return availableOpponents.FirstOrDefault();
     }
+    */
+    /*
+    private Player FindBestOpponent(Player player, IEnumerable<Player> eligiblePlayers, IEnumerable<Duel> upcomingDuels) {
+        var availableOpponents = eligiblePlayers
+            .Where(p => p.Id != player.Id && !IsPlayerSelected(p, upcomingDuels))
+            .OrderBy(p => Math.Abs(p.EloRating - player.EloRating));
 
+        return availableOpponents.FirstOrDefault();
+    }
     private bool IsPlayerSelected(Player player, IEnumerable<Duel> upcomingDuels) {
         return upcomingDuels.Any(duel => duel.Player1.Id == player.Id || duel.Player2.Id == player.Id);
     }
+    */
 }

@@ -12,11 +12,13 @@ public class StatisticsServiceClient
         this.httpClient = httpClient;
     }
 
+    /*
     public async Task<Dictionary<int, PlayerStatistics>> GetPlayerStatistics()
     {
         var response = await httpClient.GetFromJsonAsync<Dictionary<int, PlayerStatistics>>("/Statistics");
         return response ?? new Dictionary<int, PlayerStatistics>();
     }
+    */
     
     public List<PlayerStatistics> GetPlayerStatisticsFromRemoteService() {
         using (var httpClient = new HttpClient()) {
