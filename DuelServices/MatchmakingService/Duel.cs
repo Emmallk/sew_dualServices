@@ -9,5 +9,5 @@ public class Duel
     
     public DateTime ScheduledTime { get; set; }
     
-    public DuelResult DuelResult { get; set; }
+    public int DuelResult { get; set; }
 }

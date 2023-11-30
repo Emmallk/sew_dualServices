@@ -243,3 +243,12 @@ public class PlayerStatisticsController : ControllerBase {
         return Ok("Player statistics updated.");
     }
 }
+public class Duel
+{
+    public Player Player1 { get; set; }
+    public Player Player2 { get; set; }
+    
+    public DateTime ScheduledTime { get; set; }
+    
+    public int DuelResult { get; set; }
+}
