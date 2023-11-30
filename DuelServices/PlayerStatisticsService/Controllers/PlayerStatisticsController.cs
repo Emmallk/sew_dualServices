@@ -8,7 +8,7 @@ using RegistrationService;
 namespace PlayerStatisticsService.Controllers;
 
 [ApiController]
-[Route("Statistics")]
+[Route("Statistics")] 
 public class PlayerStatisticsController : ControllerBase {
     //private readonly Dictionary<int, PlayerStatistics> playerStatistics = new Dictionary<int, PlayerStatistics>(); // Storing player statistics
 
@@ -125,7 +125,7 @@ public class PlayerStatisticsController : ControllerBase {
     };
     */
 
-    [HttpGet("GetAllPlayerStatistics")]
+    [HttpGet("GetAllPlayerStatistics")] 
     public IActionResult GetAllPlayerStatistics() {
         return Ok(playerStatistics);
     }
@@ -175,9 +175,15 @@ public class PlayerStatisticsController : ControllerBase {
     [HttpPost("UpdatePlayerStatistics")]
     public IActionResult UpdatePlayerStatistics([FromBody] Duel duelOutcome) {
         Console.WriteLine("hier2");
-      //  if (!playerStatistics.Any())
-      //  {
-            PlayerStatistics ll = new PlayerStatistics
+        if (playerStatistics.Any(p => p.PlayerId == duelOutcome.Player1.Id))
+        {
+            Console.WriteLine("existing");
+            
+        }
+        else
+        {
+            Console.WriteLine(duelOutcome.Player1.Name);
+            PlayerStatistics player1 = new PlayerStatistics
             {
                 PlayerId = duelOutcome.Player1.Id,
                 PlayerName = duelOutcome.Player1.Name,
@@ -189,9 +195,20 @@ public class PlayerStatisticsController : ControllerBase {
                 NumberOfDuelsLost = 0,
                 NumberOfDuelsDraw = 0
             };
-            playerStatistics.Add(ll);
-       // }
-            /*
+            playerStatistics.Add(player1);
+        }
+
+        if (playerStatistics.Any(p => p.PlayerId == duelOutcome.Player2.Id))
+        {
+        }
+        else
+        {
+            
+        }
+
+
+        
+        /*
         if (duelOutcome == null) {
             return BadRequest("Invalid duel outcome data.");
         }
@@ -225,20 +242,4 @@ public class PlayerStatisticsController : ControllerBase {
         */
         return Ok("Player statistics updated.");
     }
-}
-
-public class Duel
-{
-    public Player Player1 { get; set; }
-    public Player Player2 { get; set; }
-    
-    public DateTime ScheduledTime { get; set; }
-    
-    public DuelResult DuelResult { get; set; }
-}
-public enum DuelResult
-{
-    Won,
-    Lost,
-    Draw
 }
