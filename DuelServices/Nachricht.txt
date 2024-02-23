@@ -1,0 +1,10 @@
+Sehr geehrter Herr Professor Winkler,
+
+im Ordner befindet sich das DuelServices Projekt von Sabrina Holzinger und Emma Karner.
+Wir haben versuch so viele Kommentare wie möglich zu schreiben, um unsere Intentionen zu zeigen.
+
+-> haben keine Automatischen Anfangs Spieler - unter ReistrationService in RegistrationList eine Liste von Namen Eingeben. z.B. [ "Julia", "Lea", "Günter", "Herbert", "Hildegard", "Fritz", "Rainer" ]
+
+-> falls DuelSimulationService beim gleichzeitig Starten aller Services wieder abstützt, einfach die Spieler hinzufügen und DuelSimulationService neu Starten.
+
+-> PlayerStatisticsService - Page heist /playerstatistics
