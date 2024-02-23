@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Aez3oivBpd3EV8e7sJUl8jI3krMTRboiJ5wG+s0FrXr6Mey8gr/8lPH94lEeYskPKsAZHLIhpT8LVtDzKUZsow==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emmak\\_Daten_EK\\repos\\sew_dualServices\\sew_Projektverwaltung\\sew_Projektverwaltung\\sew_Projektverwaltung.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emmak\\.nuget\\packages\\rabbitmq.client\\6.7.0\\rabbitmq.client.6.7.0.nupkg.sha512",
+    "C:\\Users\\emmak\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\emmak\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

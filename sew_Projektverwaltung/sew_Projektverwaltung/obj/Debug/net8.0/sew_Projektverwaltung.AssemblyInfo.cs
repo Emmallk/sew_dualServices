@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("projektverwaltung")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("sew_Projektverwaltung")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca322d263e1057e59fad7469833b25903d31a286")]
-[assembly: System.Reflection.AssemblyProductAttribute("projektverwaltung")]
-[assembly: System.Reflection.AssemblyTitleAttribute("projektverwaltung")]
+[assembly: System.Reflection.AssemblyProductAttribute("sew_Projektverwaltung")]
+[assembly: System.Reflection.AssemblyTitleAttribute("sew_Projektverwaltung")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Von der MSBuild WriteCodeFragment-Klasse generiert.
