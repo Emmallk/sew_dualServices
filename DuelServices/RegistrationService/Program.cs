@@ -1,4 +1,3 @@
-using RegistrationService.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +8,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddSingleton<IPlayerService, PlayerService>();
 
 var app = builder.Build();
 

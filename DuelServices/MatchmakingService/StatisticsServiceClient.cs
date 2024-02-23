@@ -3,36 +3,17 @@ using PlayerStatisticsService;
 
 namespace MatchmakingService;
 
-public class StatisticsServiceClient
-{
-    private readonly HttpClient httpClient;
+public class StatisticsServiceClient {
+    private readonly HttpClient _httpClient;
 
-    public StatisticsServiceClient(HttpClient httpClient)
-    {
-        this.httpClient = httpClient;
+    public StatisticsServiceClient(HttpClient httpClient) {
+        this._httpClient = httpClient;
     }
 
-    /*
-    public async Task<Dictionary<int, PlayerStatistics>> GetPlayerStatistics()
-    {
-        var response = await httpClient.GetFromJsonAsync<Dictionary<int, PlayerStatistics>>("/Statistics");
-        return response ?? new Dictionary<int, PlayerStatistics>();
-    }
-    */
-    
-    public List<PlayerStatistics> GetPlayerStatisticsFromRemoteService() {
-        using (var httpClient = new HttpClient()) {
-            HttpResponseMessage response =
-                httpClient.GetAsync("http://localhost:5099/Statistics/GetAllPlayerStatistics").Result;
-
-            if (response.IsSuccessStatusCode) {
-                string content = response.Content.ReadAsStringAsync().Result;
-                List<PlayerStatistics> playerStatistics = JsonSerializer.Deserialize<List<PlayerStatistics>>(content,
-                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                return playerStatistics;
-            }
-
-            return null;
-        }
+    public async Task<List<PlayerStatistics>> GetPlayerStatisticsFromRemoteService() {
+        List<PlayerStatistics> playerStatistics =
+            await _httpClient.GetFromJsonAsync<List<PlayerStatistics>>(
+                "http://localhost:5150/Statistics/GetAllPlayerStatistics");
+        return playerStatistics;
     }
 }

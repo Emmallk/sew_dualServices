@@ -14,12 +14,8 @@ public class MatchmakingServiceClient
         this._httpClient = httpClient;
     }
     public async Task<List<Duel>> GetMatchedPlayers() {
-        HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5099/Matchmaking/Matchmaking");
-        if (response.IsSuccessStatusCode) {
-            string content = await response.Content.ReadAsStringAsync();
-            upcomingDuels = JsonSerializer.Deserialize<List<Duel>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            return upcomingDuels;
-        }
-        return null;
+        
+        List<Duel> upcomingDuels = await _httpClient.GetFromJsonAsync<List<Duel>>("http://localhost:5099/Matchmaking/Matchmaking");
+        return upcomingDuels; 
     }
 }

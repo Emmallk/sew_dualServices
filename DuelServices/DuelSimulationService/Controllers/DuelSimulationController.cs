@@ -11,7 +11,6 @@ using System.Text.Json;
 namespace DuelSimulation.Controllers;
 
 [Route("DuelSimulation")]
-public class DuelSimulationController : Controller
-{
+public class DuelSimulationController : Controller {}
 
-}
+//Klasse leer, da alles in der BgService läuft (DuelBgSerive.cs)

@@ -9,8 +9,8 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.11"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.11" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
 
 
@@ -19,12 +19,6 @@
       <ProjectReference Include="..\MatchmakingService\MatchmakingService.csproj" />
       <ProjectReference Include="..\PlayerStatisticsService\PlayerStatisticsService.csproj" />
       <ProjectReference Include="..\RegistrationService\RegistrationService.csproj" />
-    </ItemGroup>
-
-
-
-    <ItemGroup>
-      <Folder Include="Interfaces\" />
     </ItemGroup>
 
 </Project>

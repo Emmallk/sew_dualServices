@@ -9,12 +9,14 @@
     <table class="table">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Player Name</th>
             <th>Number of Duels Played</th>
             <th>Current Elo Rating</th>
             <th>Number of Duels Won</th>
             <th>Number of Duels Lost</th>
             <th>Number of Duels Draw</th>
+            <th>W/L Ratio</th>
             <th>Last Duel Played At</th>
         </tr>
         </thead>
@@ -22,12 +24,23 @@
         @foreach (var playerStatistics in playerStatisticsList)
         {
             <tr>
+                <td>@playerStatistics.PlayerId</td>
                 <td>@playerStatistics.PlayerName</td>
                 <td>@playerStatistics.NumberOfDuelsPlayed</td>
                 <td>@playerStatistics.CurrentEloRating</td>
                 <td>@playerStatistics.NumberOfDuelsWon</td>
                 <td>@playerStatistics.NumberOfDuelsLost</td>
                 <td>@playerStatistics.NumberOfDuelsDraw</td>
+                <td>
+                    @if (playerStatistics.NumberOfDuelsLost != 0)
+                        {
+                            <text>@(Math.Round((double)playerStatistics.NumberOfDuelsWon / playerStatistics.NumberOfDuelsLost, 2).ToString("0.00"))</text>
+                        }
+                        else
+                        {
+                            <text>Zero</text>
+                        }
+                </td>
                 <td>@playerStatistics.LastDuelPlayedAt</td>
             </tr>
         }
